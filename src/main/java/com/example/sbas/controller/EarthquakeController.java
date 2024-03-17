@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.RestController;
 @RequiredArgsConstructor
 @RequestMapping("/quake")
 public class EarthquakeController {
-
     private final EarthquakeService earthquakeService;
 
     @PostMapping("/save")
