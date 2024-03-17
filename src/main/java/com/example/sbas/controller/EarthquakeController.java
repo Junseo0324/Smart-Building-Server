@@ -16,6 +16,7 @@ public class EarthquakeController {
     private final EarthquakeService earthquakeService;
 
     @PostMapping("/save")
+
     public String quakeSave(@RequestBody EarthquakeDTO earthquakeDTO){
 
         earthquakeService.save(earthquakeDTO);
