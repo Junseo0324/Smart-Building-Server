@@ -4,6 +4,8 @@ import com.example.sbas.dto.EarthquakeDTO;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
+import org.json.JSONArray;
+import org.json.JSONObject;
 
 @Entity
 @Getter
@@ -28,5 +30,20 @@ public class EarthquakeEntity {
         earthquake.setSensorTime(earthquakeDTO.getSensorTime());
 
         return earthquake;
+    }
+
+
+
+    @Override
+    public String toString() {
+
+        JSONArray jsonArray = new JSONArray();
+        JSONObject jsonObject = new JSONObject();
+        jsonObject.put("id",id);
+        jsonObject.put("vibrationSensor",vibrationSensor);
+        jsonObject.put("sensorTime",sensorTime);
+        jsonArray.put(jsonObject);
+
+        return jsonObject.toString() ;
     }
 }

@@ -8,6 +8,8 @@ import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 @RequiredArgsConstructor
 public class GasService {
@@ -18,5 +20,12 @@ public class GasService {
         GasEntity gasEntity = GasEntity.togasEntity(gasDTO);
         gasRepository.save(gasEntity);
 
+    }
+
+    public String findList() {
+
+        List<GasEntity> dbList = gasRepository.findAll();
+
+        return dbList.toString();
     }
 }

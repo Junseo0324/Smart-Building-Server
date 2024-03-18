@@ -4,6 +4,8 @@ import com.example.sbas.dto.GasDTO;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
+import org.json.JSONArray;
+import org.json.JSONObject;
 
 @Entity
 @Getter
@@ -32,5 +34,21 @@ public class GasEntity {
         gasEntity.setSensorTime(gasDTO.getSensorTime());
 
         return gasEntity;
+    }
+
+
+
+    @Override
+    public String toString() {
+
+        JSONArray jsonArray = new JSONArray();
+        JSONObject jsonObject = new JSONObject();
+        jsonObject.put("id",id);
+        jsonObject.put("flammable",flammable);
+        jsonObject.put("co",co);
+        jsonObject.put("sensorTime",sensorTime);
+        jsonArray.put(jsonObject);
+
+        return jsonObject.toString() ;
     }
 }

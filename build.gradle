@@ -24,6 +24,9 @@ dependencies {
 	implementation 'mysql:mysql-connector-java:8.0.32'
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 	runtimeOnly 'com.mysql:mysql-connector-j'
+	implementation'org.json:json:20200518'
+
+
 }
 
 tasks.named('test') {

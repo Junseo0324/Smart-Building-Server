@@ -4,10 +4,7 @@ package com.example.sbas.controller;
 import com.example.sbas.dto.GasDTO;
 import com.example.sbas.service.GasService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequiredArgsConstructor
@@ -16,9 +13,14 @@ public class GasController {
 
     private final GasService gasService;
 
+    @GetMapping("/list")
+    public String getList(GasDTO gasDTO){
+
+        return gasService.findList();
+    }
 
     @PostMapping("/save")
-    public String gasSave(@RequestBody GasDTO gasDTO){
+    public String saveData(@RequestBody GasDTO gasDTO){
 
         gasService.save(gasDTO);
         return gasDTO.toString();

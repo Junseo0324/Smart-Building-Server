@@ -2,11 +2,9 @@ package com.example.sbas.controller;
 
 import com.example.sbas.dto.EarthquakeDTO;
 import com.example.sbas.service.EarthquakeService;
+import lombok.Getter;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequiredArgsConstructor
@@ -14,11 +12,17 @@ import org.springframework.web.bind.annotation.RestController;
 public class EarthquakeController {
     private final EarthquakeService earthquakeService;
 
+
+    @GetMapping("/list")
+    public String getList(EarthquakeDTO earthquakeDTO){
+
+        return earthquakeService.findList();
+    }
     @PostMapping("/save")
 
-    public String quakeSave(@RequestBody EarthquakeDTO earthquakeDTO){
-
+    public String saveData(@RequestBody EarthquakeDTO earthquakeDTO){
         earthquakeService.save(earthquakeDTO);
+
         return earthquakeDTO.toString();
     }
 }
