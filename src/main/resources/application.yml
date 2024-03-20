@@ -4,7 +4,7 @@ spring:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://localhost:3306/SBAS
     username: root
-    password: gjwnstkd20!
+    password: xxx!
   jpa:
     database: mysql
     database-platform: org.hibernate.dialect.MySQLDialect
